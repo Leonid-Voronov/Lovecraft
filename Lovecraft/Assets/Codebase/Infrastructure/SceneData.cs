@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-namespace Client
+namespace Lovecraft.Client.Infrastructure
 {
   sealed class SceneData : MonoBehaviour
   {

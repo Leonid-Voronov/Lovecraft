@@ -1,16 +1,18 @@
 using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
+using Lovecraft.Client.Config;
+using Lovecraft.Client.Input;
 using UnityEngine;
 
-namespace Client
+namespace Lovecraft.Client.Infrastructure
 {
   sealed class Game : MonoBehaviour
   {
-    [SerializeField] SceneData _sceneData;
-    [SerializeField] Configuration _configuration;
-    EcsSystems _systems;
+    [SerializeField] private SceneData _sceneData;
+    [SerializeField] private ConfigurationSo _configuration;
+    private EcsSystems _systems;
 
-    void Start()
+    private void Start()
     {
       var world = new EcsWorld();
       _systems = new EcsSystems(world);
@@ -19,16 +21,18 @@ namespace Client
 #if UNITY_EDITOR
           .Add(new Leopotam.EcsLite.UnityEditor.EcsWorldDebugSystem())
 #endif
+          .Add(new InputInitializationSystem())
+          .AddWorld(world, "World")
           .Inject(_sceneData)
           .Init();
     }
 
-    void Update()
+    private void Update()
     {
       _systems?.Run();
     }
 
-    void OnDestroy()
+    private void OnDestroy()
     {
       _systems?.Destroy();
       _systems?.GetWorld()?.Destroy();
