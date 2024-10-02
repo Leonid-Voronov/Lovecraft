@@ -22,6 +22,7 @@ namespace Lovecraft.Client.Infrastructure
           .Add(new Leopotam.EcsLite.UnityEditor.EcsWorldDebugSystem())
 #endif
           .Add(new InputInitializationSystem())
+          .Add(new GlobalMapInputSystem())
           .AddWorld(world, "World")
           .Inject(_sceneData)
           .Init();
