@@ -16,6 +16,7 @@ namespace Lovecraft.Client.Input
       var world = _ecsWorld.Value;
       var controlsEntity = world.NewEntity();
       Controls controls = new Controls();
+      controls.Enable();
 
       ref var playerInputControls = ref _playerInputControlsPool.Value.Add(controlsEntity);
       playerInputControls.Controls = controls;

@@ -28,13 +28,13 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             ""id"": ""7a05da98-f8c3-4317-a920-34e13aab828d"",
             ""actions"": [
                 {
-                    ""name"": ""New action"",
-                    ""type"": ""Button"",
+                    ""name"": ""Click"",
+                    ""type"": ""Value"",
                     ""id"": ""61814c93-c526-4be6-b5c0-df4469a1fd5f"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -45,7 +45,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""New action"",
+                    ""action"": ""Click"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -56,7 +56,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
 }");
         // GlobalMap
         m_GlobalMap = asset.FindActionMap("GlobalMap", throwIfNotFound: true);
-        m_GlobalMap_Newaction = m_GlobalMap.FindAction("New action", throwIfNotFound: true);
+        m_GlobalMap_Click = m_GlobalMap.FindAction("Click", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -118,12 +118,12 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     // GlobalMap
     private readonly InputActionMap m_GlobalMap;
     private List<IGlobalMapActions> m_GlobalMapActionsCallbackInterfaces = new List<IGlobalMapActions>();
-    private readonly InputAction m_GlobalMap_Newaction;
+    private readonly InputAction m_GlobalMap_Click;
     public struct GlobalMapActions
     {
         private @Controls m_Wrapper;
         public GlobalMapActions(@Controls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Newaction => m_Wrapper.m_GlobalMap_Newaction;
+        public InputAction @Click => m_Wrapper.m_GlobalMap_Click;
         public InputActionMap Get() { return m_Wrapper.m_GlobalMap; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -133,16 +133,16 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_GlobalMapActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_GlobalMapActionsCallbackInterfaces.Add(instance);
-            @Newaction.started += instance.OnNewaction;
-            @Newaction.performed += instance.OnNewaction;
-            @Newaction.canceled += instance.OnNewaction;
+            @Click.started += instance.OnClick;
+            @Click.performed += instance.OnClick;
+            @Click.canceled += instance.OnClick;
         }
 
         private void UnregisterCallbacks(IGlobalMapActions instance)
         {
-            @Newaction.started -= instance.OnNewaction;
-            @Newaction.performed -= instance.OnNewaction;
-            @Newaction.canceled -= instance.OnNewaction;
+            @Click.started -= instance.OnClick;
+            @Click.performed -= instance.OnClick;
+            @Click.canceled -= instance.OnClick;
         }
 
         public void RemoveCallbacks(IGlobalMapActions instance)
@@ -162,6 +162,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     public GlobalMapActions @GlobalMap => new GlobalMapActions(this);
     public interface IGlobalMapActions
     {
-        void OnNewaction(InputAction.CallbackContext context);
+        void OnClick(InputAction.CallbackContext context);
     }
 }

@@ -6,6 +6,11 @@ namespace Lovecraft.Client.Infrastructure
     {
       public const string World = "World";
     }
+
+    public static class Layers
+    {
+      public const string Clickable = "Clickable";
+    }
   }
 }
 

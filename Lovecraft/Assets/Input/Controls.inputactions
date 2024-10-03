@@ -6,13 +6,13 @@
             "id": "7a05da98-f8c3-4317-a920-34e13aab828d",
             "actions": [
                 {
-                    "name": "New action",
-                    "type": "Button",
+                    "name": "Click",
+                    "type": "Value",
                     "id": "61814c93-c526-4be6-b5c0-df4469a1fd5f",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -23,7 +23,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New action",
+                    "action": "Click",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

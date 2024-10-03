@@ -2,6 +2,7 @@ using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
 using Lovecraft.Client.Config;
 using Lovecraft.Client.Input;
+using Lovecraft.Client.Input.GlobalMap;
 using UnityEngine;
 
 namespace Lovecraft.Client.Infrastructure
@@ -22,8 +23,10 @@ namespace Lovecraft.Client.Infrastructure
           .Add(new Leopotam.EcsLite.UnityEditor.EcsWorldDebugSystem())
 #endif
           .Add(new InputInitializationSystem())
+          .Add(new GlobalMapInputInitializationSystem())
           .Add(new GlobalMapInputSystem())
-          .AddWorld(world, "World")
+          .Add(new ClickRaycastSystem())
+          .AddWorld(world, Idents.Worlds.World)
           .Inject(_sceneData)
           .Init();
     }
