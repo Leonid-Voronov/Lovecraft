@@ -1,7 +1,6 @@
 using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
 using Lovecraft.Client.Infrastructure;
-using UnityEngine;
 
 namespace Lovecraft.Client.Input
 {
