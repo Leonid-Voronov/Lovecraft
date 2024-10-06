@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4a813c678ebec2488b2c9627deb8d88, type: 3}
   m_Name: Configuration
   m_EditorClassIdentifier: 
+  <ClickRaycastMaxDistance>k__BackingField: 100

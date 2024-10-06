@@ -30,9 +30,11 @@ namespace Lovecraft.Client.Infrastructure
           .Add(new GlobalMapInputInitializationSystem())
           .Add(new GlobalMapInputSystem())
           .Add(new ClickRaycastSystem())
+          .Add(new BuildGuiOpenSystem())
           .AddWorld(world, Idents.Worlds.World)
           .Inject(_sceneData)
           .Inject(_cellService)
+          .Inject(_configuration)
           .Init();
     }
 
