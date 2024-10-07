@@ -1,9 +1,11 @@
 using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
 using Lovecraft.Client.Config;
+using Lovecraft.Client.GameplayCommon;
 using Lovecraft.Client.GlobalMap;
 using Lovecraft.Client.Input;
 using Lovecraft.Client.Input.GlobalMap;
+using Lovecraft.Client.Resources;
 using UnityEngine;
 
 namespace Lovecraft.Client.Infrastructure
@@ -28,13 +30,19 @@ namespace Lovecraft.Client.Infrastructure
           .Add(new CellsInitSystem())
           .Add(new InputInitializationSystem())
           .Add(new GlobalMapInputInitializationSystem())
+          .Add(new ConflictSidesInitSystem())
+          .Add(new ResourcesInitSystem())
+
           .Add(new GlobalMapInputSystem())
           .Add(new ClickRaycastSystem())
           .Add(new BuildGuiOpenSystem())
+
           .AddWorld(world, Idents.Worlds.World)
+
           .Inject(_sceneData)
           .Inject(_cellService)
           .Inject(_configuration)
+
           .Init();
     }
 
