@@ -6,5 +6,11 @@ namespace Lovecraft.Client.Config
   sealed class ConfigurationSo : ScriptableObject
   {
     [field: SerializeField] public float ClickRaycastMaxDistance {  get; private set; }
+
+    [field: Header("Start Player Resources")]
+    [field: SerializeField] public int StartWoodAmount {  get; private set; }
+    [field: SerializeField] public int StartStoneAmount {  get; private set; }
+    [field: SerializeField] public int StartIronAmount {  get; private set; }
+    [field: SerializeField] public int StartWarpstoneAmount {  get; private set; }
   }
 }

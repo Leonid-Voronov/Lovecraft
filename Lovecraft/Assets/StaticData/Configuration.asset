@@ -13,3 +13,7 @@ MonoBehaviour:
   m_Name: Configuration
   m_EditorClassIdentifier: 
   <ClickRaycastMaxDistance>k__BackingField: 100
+  <StartWoodAmount>k__BackingField: 500
+  <StartStoneAmount>k__BackingField: 250
+  <StartIronAmount>k__BackingField: 100
+  <StartWarpstoneAmount>k__BackingField: 25

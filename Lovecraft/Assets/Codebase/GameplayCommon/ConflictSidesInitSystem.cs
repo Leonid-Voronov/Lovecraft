@@ -6,7 +6,7 @@ namespace Lovecraft.Client.GameplayCommon
 {
   public class ConflictSidesInitSystem : IEcsInitSystem
   {
-    private readonly EcsFilterInject<Inc<GlobalMapInput>> _playerFilter = default;
+    private readonly EcsFilterInject<Inc<PlayerTag>> _playerFilter = default;
     private readonly EcsPoolInject<ConflictSide> _conflictSidePool = default;
 
     public void Init(IEcsSystems systems)

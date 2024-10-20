@@ -1,6 +1,7 @@
 using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
 using Lovecraft.Client.Config;
+using Lovecraft.Client.Debug;
 using Lovecraft.Client.GameplayCommon;
 using Lovecraft.Client.GlobalMap;
 using Lovecraft.Client.Input;
@@ -14,6 +15,8 @@ namespace Lovecraft.Client.Infrastructure
   {
     [SerializeField] private SceneData _sceneData;
     [SerializeField] private ConfigurationSo _configuration;
+    [SerializeField] private DebugDataSo _debugData;
+
     private EcsSystems _systems;
     private CellService _cellService;
 
@@ -26,7 +29,9 @@ namespace Lovecraft.Client.Infrastructure
       _systems
 #if UNITY_EDITOR
           .Add(new Leopotam.EcsLite.UnityEditor.EcsWorldDebugSystem())
+          .Add(new ResourceDebugSystem())
 #endif
+          .Add(new PlayerInitSystem())
           .Add(new CellsInitSystem())
           .Add(new InputInitializationSystem())
           .Add(new GlobalMapInputInitializationSystem())
@@ -42,6 +47,7 @@ namespace Lovecraft.Client.Infrastructure
           .Inject(_sceneData)
           .Inject(_cellService)
           .Inject(_configuration)
+          .Inject(_debugData)
 
           .Init();
     }
