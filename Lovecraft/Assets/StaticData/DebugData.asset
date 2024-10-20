@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a646215bbdf11904a910d591d1cd17b8, type: 3}
   m_Name: DebugData
   m_EditorClassIdentifier: 
-  <DebuggedResourceName>k__BackingField: 3
+  <DebuggedResourceName>k__BackingField: 0
