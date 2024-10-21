@@ -7,7 +7,9 @@ using Lovecraft.Client.GlobalMap;
 using Lovecraft.Client.Input;
 using Lovecraft.Client.Input.GlobalMap;
 using Lovecraft.Client.Resources;
+using Lovecraft.Client.Ui.DataProjection;
 using UnityEngine;
+using Zenject;
 
 namespace Lovecraft.Client.Infrastructure
 {
@@ -19,6 +21,10 @@ namespace Lovecraft.Client.Infrastructure
 
     private EcsSystems _systems;
     private CellService _cellService;
+    private IGlobalMapProjections _projections;
+
+    [Inject]
+    public void Construct(IGlobalMapProjections globalMapProjections) => _projections = globalMapProjections;
 
     private void Start()
     {
@@ -29,7 +35,7 @@ namespace Lovecraft.Client.Infrastructure
       _systems
 #if UNITY_EDITOR
           .Add(new Leopotam.EcsLite.UnityEditor.EcsWorldDebugSystem())
-          .Add(new ResourceDebugSystem())
+          //.Add(new ResourceDebugSystem())
 #endif
           .Add(new PlayerInitSystem())
           .Add(new CellsInitSystem())
@@ -37,7 +43,7 @@ namespace Lovecraft.Client.Infrastructure
           .Add(new GlobalMapInputInitializationSystem())
           .Add(new ConflictSidesInitSystem())
           .Add(new ResourcesInitSystem())
-
+          .Add(new ResourcesProjectionSystem())
           .Add(new GlobalMapInputSystem())
           .Add(new ClickRaycastSystem())
           .Add(new BuildGuiOpenSystem())
@@ -48,6 +54,7 @@ namespace Lovecraft.Client.Infrastructure
           .Inject(_cellService)
           .Inject(_configuration)
           .Inject(_debugData)
+          .Inject(_projections)
 
           .Init();
     }

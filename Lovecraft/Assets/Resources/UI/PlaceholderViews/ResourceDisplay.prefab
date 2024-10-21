@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5783754768703802110}
   - component: {fileID: 2136442526062393242}
+  - component: {fileID: 5627447691326663956}
   m_Layer: 5
   m_Name: ResourceDisplay
   m_TagString: Untagged
@@ -51,6 +52,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _resourceText: {fileID: 8046831226064235798}
+--- !u!114 &5627447691326663956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111363223481942351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db3da586532c3e7469aa2ae89b0ac2b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewBinding: 0
+  view: {fileID: 0}
+  viewType: {fileID: 0}
+  viewId: 
+  viewModelBinding: 1
+  viewModel: {fileID: 0}
+  viewModelType: {fileID: 0}
+  viewModelId: 
 --- !u!1 &3721572386727386357
 GameObject:
   m_ObjectHideFlags: 0
@@ -225,8 +246,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0

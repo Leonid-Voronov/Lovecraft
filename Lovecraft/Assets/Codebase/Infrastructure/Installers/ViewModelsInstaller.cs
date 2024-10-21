@@ -1,3 +1,4 @@
+using Lovecraft.Client.Ui.ViewModels;
 using Zenject;
 
 namespace Lovecraft.Client.Infrastructure.Installers
@@ -6,7 +7,21 @@ namespace Lovecraft.Client.Infrastructure.Installers
   {
     public override void InstallBindings()
     {
-      
+      Container.BindInterfacesAndSelfTo<WoodViewModel>()
+          .AsSingle()
+          .NonLazy();
+
+      Container.BindInterfacesAndSelfTo<StoneViewModel>()
+          .AsSingle()
+          .NonLazy();
+
+      Container.BindInterfacesAndSelfTo<IronViewModel>()
+          .AsSingle()
+          .NonLazy();
+
+      Container.BindInterfacesAndSelfTo<WarpstoneViewModel>()
+          .AsSingle()
+          .NonLazy();
     }
   }
 }

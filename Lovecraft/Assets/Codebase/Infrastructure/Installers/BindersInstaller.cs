@@ -1,3 +1,5 @@
+using Lovecraft.Client.Ui.Binders;
+using MVVM;
 using Zenject;
 
 namespace Lovecraft.Client.Infrastructure.Installers
@@ -6,7 +8,7 @@ namespace Lovecraft.Client.Infrastructure.Installers
   {
     public override void InstallBindings()
     {
-      
+      BinderFactory.RegisterBinder<TextBinder>();
     }
   }
 }
